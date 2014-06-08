@@ -1,0 +1,7 @@
+%h1 Top#index
+%p Find me in app/views/top/index.html.haml
+- if session[:user_id] != nil 
+	%p= link_to "message", :controller => 'message'
+	%p= link_to "sign out", sign_out_path
+- else 
+	%p= link_to "login", :controller => 'login'

@@ -1,0 +1,19 @@
+%h1 Messages
+%p= link_to "top", :controller => "top"
+%hr/
+
+%b Message
+%table
+  %tr
+    %td= link_to "new", :action => 'new'
+    %td= link_to "todo", :action => "index"
+    %td= link_to "all", :action => 'all'
+  - @messages.each do |message|
+    %tr
+      %td= link_to message.body, :controller => "message", :action => "show", :id => message.id
+      - if message.finished then 
+        %td= link_to 'unmark finished', :controller => "message", :action => "unfinish", :id => message.id
+      - else 
+        %td= link_to 'mark finished', :controller => "message", :action => "finish", :id => message.id
+      %td
+        #{link_to 'delete', message, :confirm => 'Are you sure?', :method => :delete}

@@ -1,0 +1,6 @@
+%h1 Message#show
+%p= @message.body
+= form_for @message, :url => "./#{@message.id}" do |f|
+  %p= f.text_field :body
+  %p= f.submit
+%p= link_to "top", :controller => 'message'

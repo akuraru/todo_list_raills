@@ -1,0 +1,5 @@
+%h1 Message#new
+= form_for @message, :url => './' do |f|
+  %p= f.text_field :body
+  %p= f.submit
+%p= link_to "top", :controller => 'message'
